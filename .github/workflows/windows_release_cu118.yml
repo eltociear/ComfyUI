@@ -49,7 +49,12 @@ jobs:
             python -m pip install --no-cache-dir ./temp_wheel_dir/*
         - shell: bash
           run: |
-            python -m pip wheel --no-cache-dir git+https://github.com/facebookresearch/xformers.git@main#egg=xformers -w ./temp_wheel_dir
+            git clone https://github.com/facebookresearch/xformers.git
+            cd xformers
+            python -m pip install --no-cache-dir wheel setuptools twine
+            python setup.y bdist_wheel -d ../temp_wheel_dir/
+            cd ..
+            rm -rf xformers
         - shell: bash
           run: |
             mv temp_wheel_dir cu118_python_deps
