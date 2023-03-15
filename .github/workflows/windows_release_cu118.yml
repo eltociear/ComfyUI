@@ -46,7 +46,7 @@ jobs:
             python -m pip wheel --no-cache-dir torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu118 -r requirements.txt pygit2 -w ./temp_wheel_dir
         - shell: bash
           run: |
-            python -m pip install ./temp_wheel_dir/*
+            python -m pip install --no-cache-dir ./temp_wheel_dir/*
         - shell: bash
           run: |
             python -m pip wheel --no-cache-dir git+https://github.com/facebookresearch/xformers.git@main#egg=xformers -w ./temp_wheel_dir
