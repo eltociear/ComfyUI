@@ -22,11 +22,11 @@ jobs:
           with:
             python-version: '3.10.9'
 
-        # copied from xformers github
-        - uses: comfyanonymous/cuda-toolkit
+        - uses: comfyanonymous/cuda-toolkit@test
           id: cuda-toolkit
           with:
             cuda: '11.8.0'
+        # copied from xformers github
         - name: Setup MSVC
           uses: ilammy/msvc-dev-cmd@v1
         - name: Configure Pagefile
