@@ -55,10 +55,6 @@ jobs:
             mv temp_wheel_dir cu118_python_deps
             tar cf cu118_python_deps.tar cu118_python_deps
 
-        - shell: bash
-          run: |
-            python -m pip
-
 
   package_comfyui:
     needs: build_dependencies
